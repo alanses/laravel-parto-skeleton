@@ -19,19 +19,4 @@ class ApiController implements ApiControllerInterface, ParentInterface
 {
     use CallableTrait;
     use HttpResponses;
-
-    /**
-     * @param $data
-     * @param string $transformer
-     * @return mixed
-     * @throws ReflectionException
-     */
-    protected function transform($data, string $transformer)
-    {
-        if ($data instanceof Collection || $data instanceof LengthAwarePaginator || $data instanceof SupportCollection) {
-            return Fractal::collection($data)->transformWith(new $transformer())->toArray();
-        } elseif ((new ReflectionClass($data))->implementsInterface(EntityInterface::class)) {
-            return Fractal::item($data)->transformWith(new $transformer())->toArray();
-        }
-    }
 }
