@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sweetjew
- * Date: 26.01.19
- * Time: 17:44
- */
 
 namespace App\Ship\Traits;
 
